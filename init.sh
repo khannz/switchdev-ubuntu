@@ -4,6 +4,11 @@ if [ $(id -u) -ne 0 ]; then
   exit 1
 fi
 
+if [ -d $PROJECT_PATH ]; then
+  echo "E: Project dir at '$PROJECT_PATH' already exist"
+  exit 1
+fi
+
 if [ -r .env ]; then
   set -a
   . ./.env
