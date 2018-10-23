@@ -46,7 +46,7 @@ done" > $PROJECT_PATH/opt/nos-init.sh
 
   if [ -d int ]; then
     mkdir -p $PROJECT_PATH/opt/nos-init
-    rm -r $PROJECT_PATH/opt/nos-init/* >/dev/null
+    rm -r $PROJECT_PATH/opt/nos-init/* 2>/dev/null
     cp int/*.sh $PROJECT_PATH/opt/nos-init/
     schroot -c mlnx -u root --directory /opt/ -- /opt/nos-init.sh
     rm -r $PROJECT_PATH/opt/nos-init* $PROJECT_PATH/opt/.env
